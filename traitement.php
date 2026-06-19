@@ -1,5 +1,7 @@
 <?php
+
 require_once 'config.php';
+
 
 if(isset($_SESSION['user_id'])){
     header("Location: dashboard.php");
@@ -29,6 +31,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         if($stmt->fetch()){
             $error[] = "Le nom d'utilisateur est déjà utilisé.";
+            $_SESSION['error'] = $error;
+            header("Location: index.php");
+            exit;
         } else{
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
