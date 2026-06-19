@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -20,6 +23,20 @@
         <button class="form_button" id="send" type="submit">Envoyé</button>
         
     </form>
+    <!-- Affichage des erreurs -->
+     <?php if (isset($_SESSION['error'])) :?>
+        <div style="color: red;">
+            <ul>
+                <?php foreach ($_SESSION['error'] as $error) : ?>
+                    <li><?= htmlspecialchars($error)  ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    <?php
+    // Nettoyage des erreurs
+    unset($_SESSION['error']);
+    ?>
+    <?php endif; ?>
     
 </body>
 </html>
