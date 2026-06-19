@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.body{
+    text-align: center;
+}
+.body_h1{
+    padding: 20px;
+}
+.form_div{
+    padding: 10px;
+}
