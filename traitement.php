@@ -14,8 +14,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // récupération des données via l'attribut 'name' du champ HTML
     $username = trim($_POST['username'] ?? "");
     $password = $_POST['password'] ?? "";
+    $email = trim($_POST['email'] ?? "");
 
-    if(empty($username) || empty($password)){
+    if(empty($username) || empty($password || empty($email))){
             $error[] = "Veuillez remplir tous les champs.";
             $_SESSION['error'] = $error;
             header("Location: index.php");
@@ -39,9 +40,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
             // Insérer dans la base de donnée;
 
-            $insert = $pdo->prepare("INSERT INTO login (username, password) VALUE(:username, :password)");
+            $insert = $pdo->prepare("INSERT INTO login (username, password, email) VALUE(:username, :password, :email)");
             $insert->execute([
-                ':username' => $username, ':password' => $hashedPassword
+                ':username' => $username, 
+                ':password' => $hashedPassword,
+                ':email' => $email
             ]);
 
             $_SESSION['success_message'] = "Inscription réussi ! vous pouvez vous connecter";

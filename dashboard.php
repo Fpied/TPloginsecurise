@@ -27,6 +27,7 @@ $user = $stmt->fetch();
         <div class="w-full h-full bg-[url('img/fraisier.jpg')] bg-cover bg-center p-6 sm:p-10 flex items-center justify-center">
             <div class="w-full max-w-xl mx-auto bg-red-400 border-2 border-white rounded-lg p-5 sm:p-8">
                 <h1 class="text-center text-white text-4xl">Bienvenu dans votre dashboard <?php echo htmlspecialchars($username);  ?></h1>
+                <a class="block text-center text-white mt-4" href="list_user.php">Liste d'utilisateur</a>
                 <a href="logout.php" class="block text-center text-white mt-4">Déconnexion</a>
 
             </div>

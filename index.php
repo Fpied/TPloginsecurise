@@ -21,6 +21,10 @@ session_start();
                         <input class="w-full rounded-full px-4 py-2 mb-4 text-sm outline-none" type="text" id="username" name="username">
                     </div>
                     <div class="form_div">
+                        <label class="form_div_label" for="email">email</label>
+                        <input class="w-full rounded-full px-4 py-2 mb-4 text-sm outline-none" type="email" id="email" name="email">
+                    </div>
+                    <div class="form_div">
                         <label class="form_div_label" for="password">Mot de passe</label>
                         <input class="w-full rounded-full px-4 py-2 mb-4 text-sm outline-none" type="password" name="password" id="password">
                     </div>
